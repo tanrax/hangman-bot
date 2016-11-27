@@ -1,0 +1,21 @@
+* Hangman-bot
+
+[[file:screenshots/screenshot1.jpg]]
+
+** Use
+
+#+BEGIN_SRC bash
+  python Hangman-bot.py
+#+END_SRC
+  
+** Change language
+
+You will have to change the words found in /words.txt/. It currently contains the Spanish dictionary.
+
+** Screenshots
+
+[[file:screenshots/screenshot2.jpg]]
+
+[[file:screenshots/screenshot3.jpg]]
+
+[[file:screenshots/screenshot4.jpg]]
