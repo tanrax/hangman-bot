@@ -2,6 +2,8 @@
 
 [[file:screenshots/screenshot1.jpg]]
 
+[[file:screenshots/demo.gif]]
+
 ** Use
 
 #+BEGIN_SRC bash
