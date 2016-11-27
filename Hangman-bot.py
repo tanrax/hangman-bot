@@ -64,9 +64,13 @@ def best_letter(word_resolve):
     sorted_letters = sorted(
         letters.items(), key=operator.itemgetter(1), reverse=True
         )
-
     # Best letter 
-    return sorted_letters[0][0]
+    if len(sorted_letters) > 0:
+        return sorted_letters[0][0]
+    else:
+        end = True
+        print('No more possibilities')
+        return None
 
 # End Functions
 
@@ -98,34 +102,34 @@ print('')
 while play:
     # Get best letter
     best_option = best_letter(word_resolve)
-    # The guard not to give it back
-    letters_used.append(best_option)
-    print_words()
-    # Print best letter
-    print('Test with the letter> {letter}'.format(
-        letter=best_option.upper()
-        ))
-    # Save successes
-    print('')
-    question_success = raw_input('I successful? (yes o no): ').lower()
-    clear()
-    if question_success == 'no':
-        clear()
+    if best_option:
+        # The guard not to give it back
+        letters_used.append(best_option)
+        print_words()
+        # Print best letter
+        print('Test with the letter> {letter}'.format(
+            letter=best_option.upper()
+            ))
+        # Save successes
         print('')
-        print('Ups!')
-    elif question_success == 'yes':
-        print('')
-        print_words(True)
-        good_pos = raw_input('Tell me that positions (Example> 2 4 7): ').split(' ')
+        question_success = raw_input('I successful? (yes o no): ').lower()
         clear()
-        for pos in good_pos:
-            word_resolve[int(pos) - 1] = best_option
+        if question_success == 'no':
+            clear()
+            print('')
+            print('Ups!')
+        elif question_success == 'yes':
+            print('')
+            print_words(True)
+            good_pos = raw_input('Tell me that positions (Example> 2 4 7): ').split(' ')
+            clear()
+            for pos in good_pos:
+                word_resolve[int(pos) - 1] = best_option
 
     # Game over
-    end = True
-    for letter in word_resolve:
-        if letter != '_':
-            end = False
+        end = False
+        if not '_' in word_resolve:
+            end = True
     if end:
         play = False
         print('Game over :)')
